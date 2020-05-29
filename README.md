@@ -27,12 +27,7 @@ ADD REFERENCE
 
 ### Distributed software, directory content:
 
-v1.0
-	case1_elastic_loading | numerical investigation of the compression of an elastic column to reproduce the results from the manuscript
-
-	case2_cantilever_beam | numerical investigation of the cantilever beam problem to reproduce the results from the manuscript
-
-	case3_elastoplastic_slump| numerical investigation of the elastoplastic slump problem to reproduce the results from the manuscript
+v1.0 | numerical investigation of the compression of an elastic column, the cantilever beam problem and the elastoplastic slump problem to reproduce the results from the manuscript
 
 ### QUICK START:
 
