@@ -29,7 +29,20 @@ ADD REFERENCE
 
 ### QUICK START:
 
-Open Matlab, select the routine and enjoy!
+Open Matlab, select the example routines, run the script and post-process results with the postprocessing.m routine
+
+### COMPATIBILITY:
+
+fMPMM-solver was designed under a MATLAB architecture. However, it can also be run with Octave. We did not check the compatibility of the solver with every version of MATLAB nor Octave, but we provide a non-exhaustive list of compatibility
+
+#### MATLAB version:
+					R2018b
+					R2018a
+					R2017b
+					R2016a
+					R2013b
+	 Octave version:
+	                5.1.0.0
 
 ### Contact: manuwyser@gmail.com
 
