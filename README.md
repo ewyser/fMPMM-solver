@@ -29,6 +29,11 @@ ADD REFERENCE
 
 v1.0 | numerical investigation of the compression of an elastic column, the cantilever beam problem and the elastoplastic slump problem to reproduce the results from the manuscript
 
+v1.1 | numerical investigation of the compression of an elastic column, the cantilever beam problem and the elastoplastic slump problem to reproduce the results from the manuscript
+	 | - more efficient vectorisation of matrix multiplication
+	 | - CPDI/CPDi2q shape functions do not require the usage of sparse matrix
+	 | - corrected implementation of rotated stress
+
 ### QUICK START:
 
 Open Matlab, select the example routines, run the script and post-process results with the postprocessing.m routine
