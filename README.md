@@ -33,7 +33,7 @@ v1.1 | numerical investigation of the compression of an elastic column, the cant
 Changes: October, 10th 2020
 - more efficient vectorisation of matrix multiplication
 - CPDI/CPDi2q shape functions do not require the usage of sparse matrix
-- corrected implementation of rotated stress
+- corrected implementation of rotated stresses
 
 ### QUICK START:
 
