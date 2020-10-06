@@ -2,7 +2,7 @@
 
 ## Fast and efficient MATLAB-based MPM solver in an explicit formulation.
 
-Copyright (C) 2020  Emmanuel Wyser, Michel Jaboyedoff, Yury Y. Podladchikov.
+Copyright (C) 2020  Emmanuel Wyser, Yury Alkhimenkov, Michel Jaboyedoff, Yury Y. Podladchikov.
 
 fMPMM-solver is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -28,11 +28,12 @@ ADD REFERENCE
 ### Distributed software, directory content:
 
 v1.0 | numerical investigation of the compression of an elastic column, the cantilever beam problem and the elastoplastic slump problem to reproduce the results from the manuscript
-
 v1.1 | numerical investigation of the compression of an elastic column, the cantilever beam problem and the elastoplastic slump problem to reproduce the results from the manuscript
-	 | - more efficient vectorisation of matrix multiplication
-	 | - CPDI/CPDi2q shape functions do not require the usage of sparse matrix
-	 | - corrected implementation of rotated stress
+
+Changes: October, 10th 2020
+- more efficient vectorisation of matrix multiplication
+- CPDI/CPDi2q shape functions do not require the usage of sparse matrix
+- corrected implementation of rotated stress
 
 ### QUICK START:
 
