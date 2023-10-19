@@ -44,8 +44,8 @@ for sim=1:length(numel)
     phi0    = 20.0*pi/180                                                 ;% friction angle              [Rad]
     cohr    =  4.0e3                                                      ;% residual cohesion           [Pa]
     phir    = 7.5*pi/180                                                  ;% residual friction angle     [Rad]
-    t       = 7.2                                                         ;% simulation time             [s]
-    te      = 0.0                                                         ;% elastic loading             [s]
+    t       = 1.0                                                         ;% simulation time             [s]
+    te      = 1.0                                                         ;% elastic loading             [s]
     %---------------------------------------------------------------------%
     
     %% MESH & MP INITIALIZATION
