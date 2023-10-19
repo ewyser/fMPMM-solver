@@ -2,6 +2,12 @@ function [mpD] = mpSetup(meD,ni,ly,coh0,phi0,n0,rho0,nstr,typeD)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 %% MPM DISCRETIZATION
+% wall features
+wall_width       = 10.0
+wall_location    = 60.0
+wall_left_coord  = wall_location-wall_width
+wall_right_coord = wall_location+wall_width
+
 % layer initialization
 xinf    = meD.xB(1);
 xsup    = meD.xB(2);
@@ -23,6 +29,7 @@ x= x+meD.L(1)/2;
 xlt = [];
 ylt = [];
 cp = [];
+isplast = [];
 for mp=1:length(xl)
     for p = 1:length(y)
         DX = xl(mp)-x(p);
@@ -42,7 +49,13 @@ for mp=1:length(xl)
     if(pos==1)
         xlt = [xlt xl(mp)];
         ylt = [ylt yl(mp)];
+        isplast = [isplast true];
 
+    end
+    if(xl(mp)>wall_left_coord && xl(mp)<wall_right_coord)
+        xlt = [xlt xl(mp)];
+        ylt = [ylt yl(mp)];
+        isplast = [isplast false];
     end
 end
 xl = xlt;
@@ -93,7 +106,7 @@ mpD.xc = repmat(mpD.x(:,1),1,4)+mpD.r1(:,1).*[-0.5 0.5 0.5 -0.5]+...
     mpD.r2(:,1).*[-0.5 -0.5 0.5 0.5];
 mpD.yc = repmat(mpD.x(:,2),1,4)+mpD.r1(:,2).*[-0.5 0.5 0.5 -0.5]+...
     mpD.r2(:,2).*[-0.5 -0.5 0.5 0.5];
-
+mpD.isPlast = isplast
 
 end
 
