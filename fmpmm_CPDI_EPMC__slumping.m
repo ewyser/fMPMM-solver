@@ -24,7 +24,7 @@ disp('------------------------')                                          ;%
 set(0,'defaulttextinterpreter','latex')                                   ;%
 fslab  = 14; fsleg  = 14; fstit  = 14; fstick = 14;
 
-numel = repmat(55,1,1)                                                 ;%                                          ;%
+numel = repmat(40,1,1)                                                 ;%                                          ;%
 for sim=1:length(numel)
     disp('------------------------')                                      ;%
     disp(['Run ',num2str(sim),': nel = ',num2str(numel(sim)),''])         ;%
@@ -49,7 +49,7 @@ for sim=1:length(numel)
     phi0    = 20.0*pi/180                                                 ;% friction angle              [Rad]
     cohr    =  4.0e3                                                      ;% residual cohesion           [Pa]
     phir    = 7.5*pi/180                                                  ;% residual friction angle     [Rad]
-    t       = 5.0                                                         ;% simulation time             [s]
+    t       = 7.0                                                         ;% simulation time             [s]
     te      = 5.0                                                         ;% elastic loading             [s]
     %---------------------------------------------------------------------%
     

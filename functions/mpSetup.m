@@ -47,14 +47,14 @@ for mp=1:length(xl)
         end
     end
     if(pos==1)
-        xlt = [xlt xl(mp)];
-        ylt = [ylt yl(mp)];
+        xlt     = [xlt xl(mp)];
+        ylt     = [ylt yl(mp)];
         isplast = [isplast true];
 
     end
     if(xl(mp)>wall_left_coord && xl(mp)<wall_right_coord)
-        xlt = [xlt xl(mp)];
-        ylt = [ylt yl(mp)];
+        xlt     = [xlt xl(mp)];
+        ylt     = [ylt yl(mp)];
         isplast = [isplast false];
     end
 end
