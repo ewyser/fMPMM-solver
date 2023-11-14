@@ -8,6 +8,11 @@
 % frame in plane strain condition for elasto-plastic problem discretized on
 % a 4-noded quadrilateral mesh
 %% FANCY CALLS
+if isfolder('data')
+   disp('folder already existing')                                        ;% check is folder data exists
+else
+   mkdir data                                                             ;% create folder data if false
+end
 clear                                                                     ;%
 addpath('functions')                                                      ;%   
 version    = 'CPDI_EP_'                                                   ;%
@@ -44,8 +49,8 @@ for sim=1:length(numel)
     phi0    = 20.0*pi/180                                                 ;% friction angle              [Rad]
     cohr    =  4.0e3                                                      ;% residual cohesion           [Pa]
     phir    = 7.5*pi/180                                                  ;% residual friction angle     [Rad]
-    t       = 1.0                                                         ;% simulation time             [s]
-    te      = 1.0                                                         ;% elastic loading             [s]
+    t       = 5.0                                                         ;% simulation time             [s]
+    te      = 5.0                                                         ;% elastic loading             [s]
     %---------------------------------------------------------------------%
     
     %% MESH & MP INITIALIZATION
@@ -205,7 +210,7 @@ xlim([0 meD.L(1)]);
 ylim([0 ly]);
 title(['$\Delta u$, max($\Delta u$) = ',num2str(max(du),'%.2f'),' [m]']);
 print(fig3,['./data/' version 'summary' '_',num2str(sim),'' ],'-dpng');
-path = ['C:\Users\agnes\Desktop\MPM\work\stable\variant_Difference\' version 'summary' '_',num2str(sim),''];
+path = ['./data/' version '_summary' '_',num2str(sim),''];
 print(fig3,path,'-dpng');
 
 figure(4)
@@ -213,37 +218,6 @@ X = repmat(1:length(cycle_time),5,1)';
 Y = cycle_time(:,1:5);
 plot(X,Y);
 legend('basis function','p2n','n2p','deformation','consitutive')
-
-
-
-  free_surf=load('C:\Users\agnes\Desktop\MPM\work\technical_note\case5_ElastoPlasticSlump_new\Huang_etal_Solution\free_surface.txt');
-    fail_surf=load('C:\Users\agnes\Desktop\MPM\work\technical_note\case5_ElastoPlasticSlump_new\Huang_etal_Solution\failure_surface.txt');
-
-
-    fig1=figure(1)
-    set(fig1,'Units','pixels','Position',[100 287.6667 541 241.3333],'Color','white');
-    pp.cbchar='$\log_{10}(\epsilon_{\mathrm{II}})$';
-    pp.cbpos =[0.42 0.5 0.2 0.05];
-    pos            = pp.cbpos;
-    pp.cblpos=[pos(1)-(pos(3)) pos(2)+2];
-    pp.caxis =log10(max(mpD.epII));
-    pp.XTickLabel = {'-0.5','0.5'}
-    pp.XTick = {'-0.5','0.5'}
-    %pp.tit   =['time: ',num2str(it*dt-te,'%.2f'),' (s), $e_{on}=',num2str(neon),'$, $n_p \in e_i = ',num2str(ni^2),'$ '];
-    pp.tit   =['$t=',num2str(it*dt-te,'%.2f'),'$ (s)'];
-    D = log10(mpD.epII);
-    dis(D,mpD.x(:,1),mpD.x(:,2),it*dt,pp);
-    hold on
-    ax1=plot(free_surf(:,1),free_surf(:,2),'r-','LineWidth',2.5)
-    ax2=plot(fail_surf(:,1),fail_surf(:,2),'r:','LineWidth',2.5)
-    hold off
-    ylim([0 40])
-    tit = {'D-P model: final geometry','D-P model: failure surface'};
-    h1=legend([ax1 ax2],tit);
-    set(h1,'Interpreter','latex','FontSize',12,'Position',[0.4561 0.6718 0.4413 0.1778],'NumColumns',1);
-    set(fig1, 'InvertHardCopy', 'off');
-    print(fig1,['./data/' version 'vectorized_plastic_strain_invariant' '_',num2str(sim),'' ],'-dpng');
-    print(fig1,['./data/' version 'vectorized_plastic_strain_invariant' '_',num2str(sim),'' ],'-depsc');
 
 %% REFERENCE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------%
